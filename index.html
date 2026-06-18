@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberEdge Tuition – BTech Cyber Security</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0d14;
+      --surface: #111520;
+      --surface2: #181d2e;
+      --border: #1e2540;
+      --accent: #00d4ff;
+      --accent2: #7c3aed;
+      --accent3: #10b981;
+      --text: #e8edf8;
+      --muted: #8892aa;
+      --warning: #f59e0b;
+      --font: 'Space Grotesk', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 13, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo::before {
+      content: '>';
+      color: var(--accent3);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #0a0d14;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tag::before {
+      content: '●';
+      font-size: 8px;
+      animation: blink 1.4s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.2
+      }
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .h1-accent {
+      color: var(--accent);
+    }
+
+    .h1-dim {
+      color: var(--muted);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0d14;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 255, 0.04);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Grid background */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .sec-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .sec-sub {
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    /* ── COURSES ── */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .course-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--accent));
+    }
+
+    .course-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 212, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 1.25rem;
+    }
+
+    .course-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-card p {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(0, 212, 255, 0.07);
+      color: var(--accent);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+    }
+
+    .tag.green {
+      background: rgba(16, 185, 129, 0.07);
+      color: var(--accent3);
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .tag.purple {
+      background: rgba(124, 58, 237, 0.1);
+      color: #a78bfa;
+      border-color: rgba(124, 58, 237, 0.25);
+    }
+
+    /* ── PROJECTS ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-3px);
+    }
+
+    .project-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .badge-major {
+      background: rgba(124, 58, 237, 0.1);
+      color: #a78bfa;
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+
+    .badge-minor {
+      background: rgba(16, 185, 129, 0.07);
+      color: var(--accent3);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .project-stack {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stack-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--surface2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* ── WHY ME ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #0a0d14;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .price-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--accent);
+      margin: 0.75rem 0;
+    }
+
+    .price-period {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .price-desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .price-features {
+      list-style: none;
+      margin-bottom: 1.75rem;
+    }
+
+    .price-features li {
+      font-size: 0.875rem;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--accent3);
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .price-btn {
+      display: block;
+      text-align: center;
+      padding: 11px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .price-btn-primary {
+      background: var(--accent);
+      color: #0a0d14;
+    }
+
+    .price-btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .price-btn:hover {
+      opacity: 0.82;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--surface);
+      border-radius: 20px;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-detail span:first-child {
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 212, 255, 0.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group select option {
+      background: var(--surface);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      background: var(--accent);
+      color: #0a0d14;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+
+    .form-submit:hover {
+      opacity: 0.88;
+    }
+
+    .success-msg {
+      display: none;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent3);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .enquiry-icon-row {
+      display: flex;
+      justify-content: center;
+      font-size: 2.5rem;
+      padding: 1.5rem 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      #hero {
+        padding: 5rem 1.25rem 3rem;
+      }
+
+      section {
+        padding: 3.5rem 1.25rem;
+      }
+
+      .hero-stats {
+        gap: 2rem;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">CyberEdge Tuition</div>
+    <ul class="nav-links">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book Free Session</a>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Now enrolling · BTech Batch</div>
+      <h1>
+        Master <span class="h1-accent">Cyber Security</span><br />
+        <span class="h1-dim">Build Projects That Matter</span>
+      </h1>
+      <p class="hero-sub">
+        1-on-1 expert tutoring for BTech students — from foundational security concepts to AI-powered projects that get
+        you placed.
+      </p>
+      <div class="hero-btns">
+        <a href="#courses" class="btn-primary">Explore Courses</a>
+        <a href="#projects" class="btn-secondary">View Projects →</a>
+      </div>
+      <div class="hero-stats">
+
+        <div class="stat"><span class="stat-num">1:1</span><span class="stat-label">Personal Sessions</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="sec-label">// courses</div>
+    <h2 class="sec-title">Cyber Security Curriculum</h2>
+    <p class="sec-sub">All courses are tailored to BTech semester syllabus — AKTU, PTU, and major university patterns
+      covered.</p>
+    <div class="course-grid">
+
+      <div class="course-card" style="--card-accent: #00d4ff;">
+        <div class="course-icon">🔐</div>
+        <h3>Network Security Fundamentals</h3>
+        <p>Firewalls, IDS/IPS, VPNs, SSL/TLS, and packet analysis. Hands-on Wireshark labs included.</p>
+        <div class="course-tags">
+          <span class="tag">TCP/IP</span>
+          <span class="tag">Wireshark</span>
+          <span class="tag">Firewalls</span>
+        </div>
+      </div>
+
+      <div class="course-card" style="--card-accent: #7c3aed;">
+        <div class="course-icon">🛡️</div>
+        <h3>Advance Cryptography</h3>
+        <p>Advanced cryptographic techniques for data protection and Secure Key Management.</p>
+        <div class="course-tags">
+          <span class="tag purple">Zero Knowledge</span>
+          <span class="tag purple">Searchable Encryption</span>
+        </div>
+      </div>
+
+      <div class="course-card" style="--card-accent: #10b981;">
+        <div class="course-icon">🤖</div>
+        <h3>AI in Cyber Security</h3>
+        <p>Anomaly detection, threat intelligence with ML, adversarial attacks, and AI-driven SOC automation.</p>
+        <div class="course-tags">
+          <span class="tag green">ML/DL</span>
+          <span class="tag green">Python</span>
+          <span class="tag green">TensorFlow</span>
+        </div>
+      </div>
+
+      <div class="course-card" style="--card-accent: #f59e0b;">
+        <div class="course-icon">🔒</div>
+        <h3>Cryptography & PKI</h3>
+        <p>Symmetric, asymmetric, hash functions, digital signatures, and certificate authorities from scratch.</p>
+        <div class="course-tags">
+          <span class="tag">AES</span>
+          <span class="tag">RSA</span>
+          <span class="tag">OpenSSL</span>
+        </div>
+      </div>
+
+      <div class="course-card" style="--card-accent: #00d4ff;">
+        <div class="course-icon">☁️</div>
+        <h3>Cloud Security & DevSecOps</h3>
+        <p>AWS/Azure security, IAM policies, container security (Docker/K8s), and CI/CD pipeline hardening.</p>
+        <div class="course-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="course-card" style="--card-accent: #ec4899;">
+        <div class="course-icon">🕵️</div>
+        <h3>Privacy Preserving Techniques</h3>
+        <p>Secure data sharing and analysis using privacy-preserving computational techniques.</p>
+        <div class="course-tags">
+          <span class="tag">Federated Learning</span>
+          <span class="tag">HE</span>
+          <span class="tag">DP</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-label">// projects</div>
+    <h2 class="sec-title">Minor &amp; Major Projects</h2>
+    <p class="sec-sub">End-to-end guided projects — from ideation to report and viva prep. AI + Cyber Security themes
+      that stand out.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <span class="project-badge badge-major">Major Project</span>
+        <h3>AI-Powered Intrusion Detection System</h3>
+        <p>Build a real-time IDS using ML classifiers trained on NSL-KDD / CICIDS datasets with a live dashboard.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">scikit-learn</span>
+          <span class="stack-tag">Flask</span>
+          <span class="stack-tag">Scapy</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-major">Major Project</span>
+        <h3>Quantum Authentication Protocols</h3>
+        <p>Advanced quantum authentication techniques for secure communication and identity verification.</p>
+        <div class="project-stack">
+          <span class="stack-tag">QKD</span>
+          <span class="stack-tag">Quantum Auth</span>
+          <span class="stack-tag">Cryptography</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-minor">Minor Project</span>
+        <h3>Phishing URL Classifier</h3>
+        <p>Random Forest model on URL features + VirusTotal API integration. Deployable browser extension.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Flask</span>
+          <span class="stack-tag">VirusTotal API</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-minor">Minor Project</span>
+        <h3>Encrypted Chat Application</h3>
+        <p>End-to-end encrypted chat using RSA + AES hybrid encryption with key exchange protocol from scratch.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Socket.IO</span>
+          <span class="stack-tag">PyCryptodome</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-major">Major Project</span>
+        <h3>Zero-Trust Network Architecture</h3>
+        <p>Design and simulate a zero-trust model with micro-segmentation, MFA, and continuous verification.</p>
+        <div class="project-stack">
+          <span class="stack-tag">GNS3</span>
+          <span class="stack-tag">OpenZiti</span>
+          <span class="stack-tag">Okta</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-minor">Minor Project</span>
+        <h3>Log Anomaly Detection with LSTM</h3>
+        <p>Parse system/server logs and detect anomalies using LSTM time-series modeling. Real dataset demo.</p>
+        <div class="project-stack">
+          <span class="stack-tag">TensorFlow</span>
+          <span class="stack-tag">Pandas</span>
+          <span class="stack-tag">ELK Stack</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section id="why">
+    <div class="sec-label">// why choose</div>
+    <h2 class="sec-title">Why students pick this tutoring</h2>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">🧪</div>
+        <h3>Practical lab work</h3>
+        <p>Every concept paired with a live terminal demo — no dry theory slides.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Flexible scheduling</h3>
+        <p>Online or in-person sessions. Weekday evenings and weekends available.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>Doubt clearing on WhatsApp</h3>
+        <p>Quick doubt support between sessions — no waiting until next class.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <h3>Placement-ready projects</h3>
+        <p>Projects built to impress interviewers — README, GitHub, and deployment included.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="sec-label">// pricing</div>
+    <h2 class="sec-title">Simple, transparent pricing</h2>
+    <p class="sec-sub">No hidden costs. Pay for what you need.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="price-title">Subject Tuition</div>
+        <div class="price-amount">₹2000<span style="font-size:0.9rem; color:var(--muted)">/× (x = 1,2,3...) Months
+          </span></div>
+        <div class="price-desc">1-on-1 sessions for any single cyber security subject.</div>
+        <ul class="price-features">
+          <li>Concept explanation + PYQs</li>
+          <li>Lab practicals walkthrough</li>
+          <li>WhatsApp doubt support</li>
+          <li>Notes PDF shared</li>
+        </ul>
+        <a href="payment.html?pkg=subject" target="_blank" rel="noopener" class="price-btn price-btn-secondary">Enroll
+          →</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="price-title">Project Mentorship</div>
+        <div class="price-amount">₹3,000<span style="font-size:0.7rem; color:var(--muted)">/× (x = 1,2,3...)
+            Months</span></div>
+        <ul class="price-features">
+          <li>4-Months (Minor)</li>
+          <li>8-Months (Major)</li>
+          <li>Topic selection help</li>
+          <li>Full code + explanation</li>
+          <li>Report & synopsis writing</li>
+          <li>PPT preparation</li>
+          <li>Viva Q&A preparation</li>
+        </ul>
+        <a href="payment.html?pkg=project" target="_blank" rel="noopener" class="price-btn price-btn-secondary">Enroll
+          →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-title">One More Month Subscription</div>
+        <div class="price-amount" style="font-size:1.5rem;">Pay as<span style="font-size:0.8rem; color:var(--muted)">
+            Per Subscriptions</span></div>
+        <div class="price-desc">Continue your ongoing mentorship for one additional month — same support, no gaps.</div>
+        <ul class="price-features">
+          <li>Continued mentor access</li>
+          <li>WhatsApp doubt support</li>
+          <li>Progress check-ins</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <a href="payment.html?pkg=subscription" target="_blank" rel="noopener"
+          class="price-btn price-btn-secondary">Enroll →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-title">Semester Pack</div>
+        <div class="price-amount">₹6,000<span style="font-size:1rem; color:var(--muted)">/semester</span></div>
+        <div class="price-desc">Full-semester coverage across your cyber security subjects — concepts, labs, and exam
+          prep.</div>
+        <ul class="price-features">
+          <li>One subject covered full Semester</li>
+          <li>Lab practicals walkthrough</li>
+          <li>WhatsApp doubt support</li>
+          <li>Notes PDF shared</li>
+        </ul>
+        <a href="payment.html?pkg=semester" target="_blank" rel="noopener" class="price-btn price-btn-secondary">Enroll
+          →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-title">Time Management</div>
+        <div class="price-amount" style="font-size:1.6rem;">₹1,000<span style="font-size:0.75rem; color:var(--muted)"> ×
+            months</span></div>
+        <div class="price-desc">Structured planning support to keep your study schedule on track, billed monthly.</div>
+        <ul class="price-features">
+          <li>Weekly schedule planning</li>
+          <li>Exam & deadline tracking</li>
+          <li>WhatsApp check-ins</li>
+          <li>Pay per month (x = 1, 2, 3...)</li>
+        </ul>
+        <a href="payment.html?pkg=timemgmt" target="_blank" rel="noopener" class="price-btn price-btn-secondary">Enroll
+          →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="sec-label">// contact</div>
+        <h2>Book your free discovery session</h2>
+        <p>15-minute free call — no commitment. Let's discuss your syllabus, project idea, or exam prep needs.</p>
+        <div class="contact-detail">
+          <span>📱</span>
+          <span>WhatsApp / Call: <strong style="color:var(--text)">+91 91407 65641</strong></span>
+        </div>
+        <div class="contact-detail">
+          <span>📧</span>
+          <span>Email: <strong style="color:var(--text)">cyberedgetuition@gmail.com</strong></span>
+        </div>
+        <div class="contact-detail">
+          <span>🧑‍💻</span>
+          <span><strong style="color:var(--text)">Through Google-Meet</strong></span>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label style="font-size:14px; color:var(--text); font-weight:600; margin-bottom:4px;">Quick Enquiry
+              Form</label>
+            <p style="color:var(--muted); font-size:0.85rem; line-height:1.6; margin-bottom:0.5rem;">
+              Tell me your name, WhatsApp number, college, and what you need help with — it takes under a minute.
+            </p>
+          </div>
+          <div class="enquiry-icon-row">
+            <span>📝</span>
+          </div>
+          <a href="https://forms.gle/qb3y7dHn2b7j96JW7" target="_blank" rel="noopener" class="form-submit"
+            style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
+            Open Enquiry Form →
+          </a>
+          <div class="success-msg" style="display:block;">✓ Opens in a new tab — I'll reach out within a few hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <span>CyberEdge Tuition</span> · Global Level · Built for BTech students 💻</p>
+  </footer>
+
+</body>
+
+</html>
